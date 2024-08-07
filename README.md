@@ -20,7 +20,15 @@
 
 ## Getting Started
 
+### Install
+
+```bash
+go install github.com/blacktop/go-template@latest
+```
+
 <!-- Fill this out -->
+
+![demo](vhs.gif)
 
 ## License
 
