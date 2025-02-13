@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 package main
 
-import "github.com/blacktop/go-template/cmd"
+import "github.com/blacktop/TEMPLATE/cmd"
 
 func main() {
 	cmd.Execute()

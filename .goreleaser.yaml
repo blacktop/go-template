@@ -14,6 +14,7 @@ before:
     - go mod tidy
     # you may remove this if you don't need go generate
     - go generate ./...
+    - ./hack/make/completions
 
 builds:
   - id: default
@@ -29,7 +30,7 @@ universal_binaries:
   - replace: false
 
 archives:
-  - format: tar.gz
+  - formats: tar.gz
     # this name template makes the OS and Arch compatible with the results of `uname`.
     name_template: >-
       {{ .ProjectName }}_{{ .Version }}_
@@ -43,7 +44,25 @@ archives:
     # use zip for windows archives
     format_overrides:
       - goos: windows
-        format: zip
+        formats: zip
+
+brews:
+  - repository:
+      owner: blacktop
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    directory: Formula
+    goarm: "7"
+    homepage: https://github.com/blacktop/TEMPLATE
+    description: TEMPLATE
+    license: MIT
+    install: |
+      bin.install "TEMPLATE"
+      bash_completion.install "completions/_bash" => "TEMPLATE"
+      zsh_completion.install "completions/_zsh" => "_TEMPLATE"
+      fish_completion.install "completions/_fish" => "TEMPLATE.fish"
+    test: |
+      system "#{bin}/TEMPLATE --help"
 
 changelog:
   sort: asc
@@ -84,3 +103,4 @@ release:
     ## What to do next?
     - Follow us on [Twitter](https://twitter.com/blacktop__)
     - Follow us on [Mastodon](https://mastodon.social/@blacktop)
+    - Follow us on [Bluesky](https://bsky.app/profile/blacktop.bsky.social)

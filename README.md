@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://github.com/blacktop/TEMPLATE"><img alt="TEMPLATE Logo" src="https://raw.githubusercontent.com/blacktop/go-template/main/docs/logo.webp" /></a>
-  <h1 align="center">go-template</h1>
+  <a href="https://github.com/blacktop/TEMPLATE"><img alt="TEMPLATE Logo" src="https://raw.githubusercontent.com/blacktop/TEMPLATE/main/docs/logo.webp" /></a>
+  <h1 align="center">TEMPLATE</h1>
   <h4><p align="center">Go Project Template</p></h4>
   <p align="center">
     <a href="https://github.com/blacktop/TEMPLATE/actions" alt="Actions">
@@ -23,7 +23,7 @@
 ### Install
 
 ```bash
-go install github.com/blacktop/go-template@latest
+go install github.com/blacktop/TEMPLATE@latest
 ```
 
 <!-- Fill this out -->
