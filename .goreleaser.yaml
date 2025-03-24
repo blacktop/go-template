@@ -25,14 +25,20 @@ builds:
       - linux
       - windows
       - darwin
+    ignore:
+      - goos: windows
+        goarch: arm
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
 
 universal_binaries:
   - replace: false
 
 archives:
-  - formats: tar.gz
-    # this name template makes the OS and Arch compatible with the results of `uname`.
-    name_template: >-
+  - name_template: >-
       {{ .ProjectName }}_{{ .Version }}_
       {{- if eq .Os "darwin" }}macOS
       {{- else if eq .Os "ios" }}iOS
@@ -44,7 +50,14 @@ archives:
     # use zip for windows archives
     format_overrides:
       - goos: windows
-        formats: zip
+        formats: [zip]
+    files:
+      - LICENSE
+      - README.md
+      - completions/*
+
+checksum:
+  name_template: "checksums.txt"
 
 brews:
   - repository:
@@ -67,6 +80,7 @@ brews:
 changelog:
   sort: asc
   use: github
+  format: "{{ .SHA }}: {{ .Message }}{{ with .AuthorUsername }} (@{{ . }}){{ end }}"
   groups:
     - title: Dependency updates
       regexp: '^.*?(.+)\(deps\)!?:.+$'
