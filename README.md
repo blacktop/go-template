@@ -26,6 +26,8 @@
 go install github.com/blacktop/TEMPLATE@latest
 ```
 
+Or download the latest [release](https://github.com/blacktop/TEMPLATE/releases/latest)
+
 <!-- Fill this out -->
 
 ![demo](vhs.gif)
