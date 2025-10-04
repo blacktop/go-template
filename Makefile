@@ -18,3 +18,9 @@ release:
 snapshot:
 	@echo "🚀 Snapshot Version $(shell svu current)"
 	goreleaser --clean --timeout 60m --snapshot
+
+.PHONY: vhs
+vhs:
+	@echo "📼 VHS Recording"
+	@echo "Please ensure you have the 'vhs' command installed."
+	vhs < vhs.tape
