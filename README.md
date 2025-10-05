@@ -22,6 +22,14 @@
 
 ### Install
 
+Via [homebrew](https://brew.sh)
+
+```bash
+brew install blacktop/tap/TEMPLATE
+```
+
+Via [Golang](https://go.dev/dl/)
+
 ```bash
 go install github.com/blacktop/TEMPLATE@latest
 ```
