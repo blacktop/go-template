@@ -19,6 +19,14 @@ snapshot:
 	@echo "🚀 Snapshot Version $(shell svu current)"
 	goreleaser --clean --timeout 60m --snapshot
 
+.PHONY: fmt
+fmt: ## Format code
+	@echo "🧹 Formatting code"
+	@gofmt -w -r 'interface{} -> any' .
+	@goimports -w .
+	@gofmt -w -s .
+	@go mod tidy
+
 .PHONY: vhs
 vhs:
 	@echo "📼 VHS Recording"
